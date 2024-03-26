@@ -1,0 +1,14 @@
+{
+  "name": "cozy-airbnb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "scripts": {
+    "check-heaters-should-be-deactivated": "node index.js --check-heaters-should-be-deactivated",
+    "check-heaters-should-be-activated": "node index.js --check-heaters-should-be-activated"
+  }
+}
