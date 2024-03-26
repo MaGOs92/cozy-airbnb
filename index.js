@@ -39,7 +39,7 @@ async function checkHeatersShouldBeActivated() {
     const airbnbCalendar = await fetchAirbnbCalendar();
     const firstEvent = airbnbCalendar[0];
     const nowTs = Date.now();
-    const shouldHeatersBeActivated = true
+    const shouldHeatersBeActivated = true;
     //   new Date(firstEvent.startDate).getTime() <= nowTs &&
     //   new Date(firstEvent.endDate).getTime() >= nowTs;
     if (shouldHeatersBeActivated) {
@@ -52,13 +52,16 @@ async function checkHeatersShouldBeActivated() {
             device.uiClass === "HeatingSystem"
         )
         .map((device) => ({
-            commands: device.uiClass === 'WaterHeatingSystem' ? ['setActiveMode', 'off'] : ['prog'],
-            deviceURL: device.deviceURL,
+          commands:
+            device.uiClass === "WaterHeatingSystem"
+              ? [{name: "setDHWMode", parameters: ["autoMode"]}]
+              : [{name: "setHeatingLevel", parameters: ["comfort"]}],
+          deviceURL: device.deviceURL,
         }));
 
       await Promise.all(
-        heatersURls.map(({deviceURL, commands}) =>
-          cozytouchClient.getDeviceDefinition(deviceURL, commands)
+        heatersURls.map(({ deviceURL, commands }) =>
+          cozytouchClient.setCommands(deviceURL, commands)
         )
       );
       console.log("Heaters have been activated");
@@ -92,12 +95,15 @@ async function checkHeatersShouldBeDeactivated() {
             device.uiClass === "HeatingSystem"
         )
         .map((device) => ({
-            commands: device.uiClass === 'WaterHeatingSystem' ? ['setAbsenceMode', 'off'] : ['off'],
-            deviceURL: device.deviceURL,
+          commands:
+            device.uiClass === "WaterHeatingSystem"
+              ? [{name: "setDHWMode", parameters: ["manualEcoActive"]}]
+              : [{name: "setHeatingLevel", parameters: ["frostprotection"]}],
+          deviceURL: device.deviceURL,
         }));
 
       await Promise.all(
-        heatersURls.map(({deviceURL, commands}) =>
+        heatersURls.map(({ deviceURL, commands }) =>
           cozytouchClient.setCommands(deviceURL, commands)
         )
       );
