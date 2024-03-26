@@ -39,9 +39,9 @@ async function checkHeatersShouldBeActivated() {
     const airbnbCalendar = await fetchAirbnbCalendar();
     const firstEvent = airbnbCalendar[0];
     const nowTs = Date.now();
-    const shouldHeatersBeActivated = true;
-    //   new Date(firstEvent.startDate).getTime() <= nowTs &&
-    //   new Date(firstEvent.endDate).getTime() >= nowTs;
+    const shouldHeatersBeActivated = 
+      new Date(firstEvent.startDate).getTime() <= nowTs &&
+      new Date(firstEvent.endDate).getTime() >= nowTs;
     if (shouldHeatersBeActivated) {
       await cozytouchClient.login();
       const devices = await cozytouchClient.getDevices();
