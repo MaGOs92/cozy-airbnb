@@ -8,6 +8,7 @@
     "dotenv": "^16.4.5"
   },
   "scripts": {
+    "start": "echo 'Please specify a script to run' && exit 0",
     "check-heaters-should-be-deactivated": "node index.js --check-heaters-should-be-deactivated",
     "check-heaters-should-be-activated": "node index.js --check-heaters-should-be-activated"
   }
