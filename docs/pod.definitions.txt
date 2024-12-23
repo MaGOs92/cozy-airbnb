@@ -1,0 +1,58 @@
+{
+    "commands": [
+        {"commandName": "getName", "nparams": 0},
+        {"commandName": "update", "nparams": 0},
+        {"commandName": "setCountryCode", "nparams": 1},
+        {"commandName": "activateCalendar", "nparams": 0},
+        {"commandName": "deactivateCalendar", "nparams": 0},
+        {"commandName": "refreshPodMode", "nparams": 0},
+        {"commandName": "refreshUpdateStatus", "nparams": 0},
+        {"commandName": "setCalendar", "nparams": 1},
+        {"commandName": "setLightingLedPodMode", "nparams": 1},
+        {"commandName": "setPodLedOff", "nparams": 0},
+        {"commandName": "setPodLedOn", "nparams": 0},
+    ],
+    "states": [
+        {
+            "type": "DiscreteState",
+            "values": ["offline", "online"],
+            "qualifiedName": "core:ConnectivityState",
+        },
+        {"type": "DataState", "qualifiedName": "core:CountryCodeState"},
+        {
+            "eventBased": True,
+            "type": "DataState",
+            "qualifiedName": "core:LocalAccessProofState",
+        },
+        {"type": "DataState", "qualifiedName": "core:LocalIPv4AddressState"},
+        {"type": "DataState", "qualifiedName": "core:NameState"},
+        {
+            "eventBased": True,
+            "type": "DiscreteState",
+            "values": ["pressed", "stop"],
+            "qualifiedName": "internal:Button1State",
+        },
+        {
+            "eventBased": True,
+            "type": "DiscreteState",
+            "values": ["pressed", "stop"],
+            "qualifiedName": "internal:Button2State",
+        },
+        {
+            "eventBased": True,
+            "type": "DiscreteState",
+            "values": ["pressed", "stop"],
+            "qualifiedName": "internal:Button3State",
+        },
+        {
+            "type": "ContinuousState",
+            "qualifiedName": "internal:LightingLedPodModeState",
+        },
+    ],
+    "dataProperties": [],
+    "widgetName": "Pod",
+    "uiProfiles": ["UpdatableComponent"],
+    "uiClass": "Pod",
+    "qualifiedName": "internal:PodV3Component",
+    "type": "ACTUATOR",
+}

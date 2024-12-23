@@ -1,0 +1,19 @@
+{
+    "commands": [
+        {"commandName": "advancedSomfyDiscover", "nparams": 1},
+        {"commandName": "discover1WayController", "nparams": 2},
+        {"commandName": "discoverActuators", "nparams": 1},
+        {"commandName": "discoverSensors", "nparams": 1},
+        {"commandName": "discoverSomfyUnsetActuators", "nparams": 0},
+        {"commandName": "joinNetwork", "nparams": 0},
+        {"commandName": "resetNetworkSecurity", "nparams": 0},
+        {"commandName": "shareNetwork", "nparams": 0},
+    ],
+    "states": [],
+    "dataProperties": [],
+    "widgetName": "IOStack",
+    "uiProfiles": ["Specific"],
+    "uiClass": "ProtocolGateway",
+    "qualifiedName": "io:StackComponent",
+    "type": "PROTOCOL_GATEWAY",
+}
